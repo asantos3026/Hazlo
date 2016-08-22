@@ -12,23 +12,16 @@ Go through the whole process of creating and deploying a working app in a week.
 Level the project correctly into stretch zone (Goldilocks Status: Achievement Unlocked)
 Specifications
 
-#User Stories:
+# Specs:
 
-#The App: As a user...
-
-- [ ] I can create to do list items.
-- [ ] I can delete unwanted to do list items.
-- [ ] I can check items off as completed.
-- [ ] I can rearrange to do list items.
-- [ ] I can log into my account.
-- [ ] I can edit the text on existing to do's.
- 
- 
-#Additional Specs:
-
-- [ ] Create a database of to do list items.
-- [ ] Create the back end using node and express.
-- [ ] Deploy the app to heroku.
+- [ ] Visitors can sign up / sign in / sign out
+- [ ] A logged in user can CRUD `todo lists`
+- [ ] A logged in user can CRUD `todo list` items
+- [ ] A logged in user can order their `todo list` items
+- [ ] A logged in user can `complete` and `uncomplete` a `todo list` item.
+- [ ] A logged in user can sort their `todo list` items
+- [ ] uses `postgresql`
+- [ ] uses `express` and `node`
+- [ ] Deployed to heroku.
+- [ ] All JavaScript written in ES2016 (babel)
 - [ ] The artifact produced is properly licensed, preferably with the MIT license.
-- [ ] I can create mulitple lists of to do's.
-- [ ] Write the app using ES6 and deploy using babel.
