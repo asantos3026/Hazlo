@@ -1,0 +1,55 @@
+Database User Queries:
+
+READ - GETS - SELECT *
+(ASK JARED)
+
+CREATE - POST - INPUT
+Create new user avatar, email, username, password
+
+UPDATE - EDIT - ALTER
+Update existing user avatar, email, username, password
+
+DELETE - DESTROY - DROP
+Delete existing user avatar, email, username, password
+
+
+Database To Do Queries Per User:
+
+To Dos -
+
+READ - GETS - SELECT *
+Get all of the TO DOs for both categories for a specific user
+Get all In Progress PERSONAL To Dos for a specific user
+Get all In Progress BUSINESS To Dos for a specific user
+Get all Completed PERSONAL To Dos for a specific user
+Get all Completed BUSINESS To Dos for a specific user
+
+CREATE - POST - INPUT
+Create new In Progress BUSINESS To Do for a specific user
+Create new In Progress PERSONAL To Do for a specific user
+Create new Completed PERSONAL To Do for a specific user
+Create new Completed BUSINESS To Do for a specific user
+
+UPDATE - EDIT - ALTER
+(users will be able to mark in UI to return to in progress)
+Update existing In Progress BUSINESS To Do for a specific user
+Update existing In Progress PERSONAL To Do for a specific user
+
+DELETE - DESTROY - DROP
+Delete ALL In Progress BUSINESS To Do for a specific user
+Delete ALL In Progress PERSONAL To Dos for a specific user
+Delete ALL Completed BUSINESS To Dos for a specific user
+Delete ALL Completed PERSONAL TO DOS for a specific user
+Delete ONE In Progress BUSINESS To Do for a specific user
+Delete ONE In Progress PERSONAL To Do for a specific user
+
+SEARCH - SEARCH - Query?
+Search ALL To Dos containing keyword
+
+
+
+
+
+
+
+
