@@ -11,7 +11,7 @@ Learn how to dissect a new problem/challenge.
 Go through the whole process of creating and deploying a working app in a week.
 Level the project correctly into stretch zone (Goldilocks Status: Achievement Unlocked)
 
-![Imgur](http://i.imgur.com/BNmsEOx.png)
+![Imgur](http://i.imgur.com/Jj5M1qk.png)
 
 Specifications
 
