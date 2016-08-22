@@ -18,7 +18,7 @@ Specifications
 # Specs:
 
 - [ ] Visitors can sign up / sign in / sign out
-- [ ] A logged in user can CRUD `todo lists`
+- [ ] A logged in user can CRUD in eitehr 'Personal' or 'Work' 'todo lists' 
 - [ ] A logged in user can CRUD `todo list` items
 - [ ] A logged in user can `complete` and `uncomplete` a `todo list` item.
 - [ ] A logged in user can sort their `todo list` items
