@@ -10,6 +10,9 @@ Learn how front end and back end connect.
 Learn how to dissect a new problem/challenge.
 Go through the whole process of creating and deploying a working app in a week.
 Level the project correctly into stretch zone (Goldilocks Status: Achievement Unlocked)
+
+![alt tag](https://echo.learnersguild.org/file-upload/YDh235rdjFvxoEask/Screen%20Shot%202016-08-22%20at%203.18.03%20PM.png)
+
 Specifications
 
 # Specs:
