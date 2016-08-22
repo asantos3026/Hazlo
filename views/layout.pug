@@ -1,0 +1,53 @@
+doctype html
+html(lang='en')
+  head
+    title Hazlo
+    link(rel='stylesheet', href='public/stylesheets/style.css')
+  body
+  h1 Holly Grail page layout
+    p
+      | Note: in responsive view Aside 1 and Aside 2 elements stack below the Main content.
+    .Grid.Grid--full.Grid--nested.header
+      .Grid-cell
+        .Demo.Holly
+          img(src='http://placehold.it/100x50/CC99CC/ffffff&text=Logo', style='vertical-align: middle;')
+          strong  Header / Logo
+    .Grid.Grid--full
+      .Grid-cell
+        ul.navigation
+          li
+            a(href='#') Home
+          li
+            a(href='#') About
+          li
+            a(href='#') Products
+          li
+            a(href='#') Contact
+    .Grid.Grid--gutters.Grid--holly-grail
+      .Grid-cell.main
+        .Demo.Holly
+          strong Main
+          p
+            | Salvia Helvetica ethical lo-fi, artisan messenger bag put a bird on it. Photo booth taxidermy kale chips, Carles Thundercats retro blog paleo. 8-bit four loko jean shorts, church-key tattooed bespoke normcore art party salvia organic vinyl letterpress distillery. You probably haven't heard of them tofu food truck, Echo Park salvia Schlitz heirloom scenester ennui biodiesel Intelligentsia +1 church-key. Bitters meh actually quinoa, YOLO pug authentic. Kitsch health goth paleo, pop-up tofu authentic gluten-free whatever yr Brooklyn irony. Banjo Tumblr you probably haven't heard of them literally aesthetic, wolf put a bird on it Kickstarter yr.
+      .Grid-cell.aside.aside-1
+        .Demo.Holly
+          strong Aside 1
+          br
+          .img-placeholder
+          |         Chocolate cake fruitcake icing muffin applicake chocolate.
+      .Grid-cell.aside.aside-2
+        .Demo.Holly
+          strong Aside 2
+          p
+            | Hashtag deep v PBR, chillwave banjo mlkshk readymade fixie crucifix. Tattooed Tumblr direct trade trust fund swag gluten-free.
+    .Grid.Grid--full
+      .Grid-cell
+        .Demo.Holly
+          strong Footer
+          br
+          |  Copyright © Jelly-o apple pie pie chocolatebar.com
+    hr
+    p Some ideas are borrowed from Phillip Walton's Solved by Flexbox project. 
+    br
+
+    
