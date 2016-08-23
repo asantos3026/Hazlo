@@ -27,6 +27,9 @@ server.get( '/login',  routes.get.login)
 server.post('/login',  routes.post.login)
 server.get( '/logout', routes.get.logout)
 
+
+
+
 //local host server
 server.listen(3000, function() {
   console.log('Example app listening on port 3000!')
