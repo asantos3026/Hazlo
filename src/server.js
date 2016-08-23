@@ -5,19 +5,15 @@ import cookieParser from 'cookie-parser'
 import bodyParser   from 'body-parser'
 import pug          from 'pug'
 import database     from './database'
-import onHeaders    from 'on-headers'
 import routes       from './routes'
 
 const server = express()
-const cookieName = 'hazlo'
 
 //view engine setup
 server.set('port', process.env.PORT || 3000)
 //server.set('view engine', 'pug');
 server.set('views', path.join(__dirname, 'views'))
 server.set('view engine', 'pug')
-
-
 
 server.use(express.static(path.join(__dirname, 'public')))
 server.use(bodyParser.json())

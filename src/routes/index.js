@@ -2,9 +2,7 @@ import express from 'express'
 import onHeaders from 'on-headers'
 // import database from './database'
 // const pgp = database.pgp;
-const router = express.Router();
-
-module.exports = {
+export default {
   sessionMiddleware: function(req, res, next){
     const cookieName = 'hazlo'
     req.session = req.cookies[cookieName] || {}
