@@ -43,7 +43,7 @@ module.exports = {
   authenticateUser: function(credentials){
     const sql = `
       SELECT
-        id
+        *
       FROM
         users
       WHERE
@@ -58,7 +58,5 @@ module.exports = {
       credentials.password
     ]
     return db.oneOrNone(sql, variables)
-      .then(user => {console.log('WTF?', user); return user})
-      .then(user => user ? user.id : null)
   }
 }

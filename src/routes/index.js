@@ -38,11 +38,13 @@ export default {
     },
 
     login: function(req, res){
-      res.render('login')
+      res.render('login',{
+        email: req.session.email
+      })
     },
 
     logout: function(req, res){
-      req.session = {}
+      logout(req)
       res.redirect('/')
     }
   },
@@ -63,7 +65,7 @@ export default {
         // res.json(req.body)
         database.createUser(attributes)
           .then(user => {
-            req.session.userId = user.id
+            login(req, user.id)
             res.redirect('/')
           })
           .catch(error => {
@@ -84,17 +86,26 @@ export default {
       }
 
       database.authenticateUser(credentials)
-        .then(userId => {
-          console.log('userId', userId)
-          if (userId === null){
+        .then(user => {
+          if (user === null){
             res.status(400).render('login', {
               error: 'Bad email or password'
             })
           }else{
-            req.session.userId = userId
+            login(req, user)
             res.redirect('/')
           }
         })
     }
   }
+}
+
+
+const login = function(req, user){
+  req.session.userId = user.id
+  req.session.email = user.email
+}
+
+const logout = function(req){
+  delete req.session.userId
 }
