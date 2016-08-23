@@ -1,7 +1,7 @@
 import express from 'express'
 import onHeaders from 'on-headers'
-// import database from './database'
-// const pgp = database.pgp;
+import database from '../database'
+
 export default {
   sessionMiddleware: function(req, res, next){
     const cookieName = 'hazlo'
@@ -19,14 +19,21 @@ export default {
 
   get: {
     index: function(req, res) {
-      console.log('Cookies : ', req.cookies)
+      if (req.session.userId){
+        database.getUserById(req.session.userId)
+          .then(currentUser => {
+            res.render('dashboard',{
+              currentUser: currentUser
+            })
+          })
+      }else{
+        res.render('homepage')
+      }
+    },
 
-      const currentUser = req.session.userId ?
-       {name: 'Jared Grippe'} : null
-
-      res.render('index', {
-        session: req.session,
-        currentUser: currentUser
+    signup: function(req, res){
+      res.render('signup',{
+        email: ''
       })
     },
 
@@ -41,21 +48,52 @@ export default {
   },
 
   post: {
+
+    signup: function(req, res){
+      const attributes = req.body.user
+      const email = attributes.email
+      const password = attributes.password
+      const password_confirmation = attributes.password_confirmation
+      if (password !== '' && password !== password_confirmation){
+        res.render('signup', {
+          error: 'passwords do not match',
+          email: email,
+        })
+      }else{
+        // res.json(req.body)
+        database.createUser(attributes)
+          .then(user => {
+            req.session.userId = user.id
+            res.redirect('/')
+          })
+          .catch(error => {
+            res.render('signup', {
+              error: error,
+              stack: error.stack,
+              email: email,
+            })
+          })
+      }
+
+    },
+
     login: function(req, res){
-      // recieve login credentials
-      // lookup and authenticate user
       const credentials = {
-        email:    req.query.email,
-        password: req.query.password
+        email:    req.body.email,
+        password: req.body.password
       }
 
       database.authenticateUser(credentials)
         .then(userId => {
-          req.session.userId = userId
-          res.redirect('/')
-        })
-        .catch(error => {
-          res.render('login', {error: error.message})
+          console.log('userId', userId)
+          if (userId === null){
+            res.status(400).render('login', {
+              error: 'Bad email or password'
+            })
+          }else{
+            req.session.userId = userId
+            res.redirect('/')
+          }
         })
     }
   }

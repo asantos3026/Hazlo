@@ -23,6 +23,8 @@ server.use(cookieParser())
 // middleware
 server.use(routes.sessionMiddleware)
 server.get( '/',       routes.get.index)
+server.get( '/signup', routes.get.signup)
+server.post('/signup', routes.post.signup)
 server.get( '/login',  routes.get.login)
 server.post('/login',  routes.post.login)
 server.get( '/logout', routes.get.logout)
