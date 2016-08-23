@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(20) NOT NULL,
+  password VARCHAR(8) NOT NULL,
+  avatar VARCHAR(255) NOT NULL,
+  name TEXT NOT NULL,
+  created_at DATE NOT NULL
+);
+
+DROP TABLE IF EXISTS todos;
+
+CREATE TABLE todos (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  created_at DATE NOT NULL,
+  work BOOLEAN NOT NULL
+);
+
+
