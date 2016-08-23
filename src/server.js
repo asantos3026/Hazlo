@@ -1,12 +1,14 @@
-const express = require('express')
-const path = require('path')
-const logger = require('morgan')
-const cookieParser = require('cookie-parser')
-const bodyParser = require('body-parser')
-const pug = require('pug')
-const database = require('./src/database')
+import express      from 'express'
+import path         from 'path'
+import logger       from 'morgan'
+import cookieParser from 'cookie-parser'
+import bodyParser   from 'body-parser'
+import pug          from 'pug'
+import database     from './database'
+import onHeaders    from 'on-headers'
+import routes       from './routes'
+
 const server = express()
-const onHeaders = require('on-headers')
 const cookieName = 'hazlo'
 
 //view engine setup
@@ -36,21 +38,9 @@ server.use(function(req, res, next){
   next()
 })
 
-server.get('/', function(req, res) {
-  console.log('Cookies : ', req.cookies)
+server.get('/', routes.index)
 
-  const currentUser = req.session.userId ?
-   {name: 'Jared Grippe'} : null
-
-  res.render('index', {
-    session: req.session,
-    currentUser: currentUser
-  })
-})
-
-server.get('/login', function(req, res){
-  res.render('login')
-})
+server.get('/login', routes.login)
 
 server.post('/login', function(req, res){
   // recieve login credentials

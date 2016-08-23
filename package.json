@@ -2,9 +2,10 @@
   "name": "hazlo",
   "version": "1.0.0",
   "description": "to-do list app",
-  "main": "server.js",
+  "main": "dist/server.js",
   "scripts": {
-    "build": "babel src -d dist",
+    "start": "node dist/server.js",
+    "build": "babel src -d dist --copy-files",
     "build:watch": "npm run build -- --watch",
     "test": "mocha --recursive --watch --require babel-register "
   },
