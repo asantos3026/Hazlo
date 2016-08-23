@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR(20) NOT NULL,
-  password VARCHAR(8) NOT NULL,
+  encryption VARCHAR(255) NOT NULL,
   avatar VARCHAR(255) NOT NULL,
   name TEXT NOT NULL,
   created_at DATE NOT NULL
