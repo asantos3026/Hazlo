@@ -25,46 +25,11 @@ server.use(bodyParser.urlencoded({ extended: true }))
 server.use(cookieParser())
 
 // middleware
-server.use(function(req, res, next){
-  req.session = req.cookies[cookieName] || {}
-  req.session.requestCount = req.session.requestCount || 0
-  req.session.requestCount++;
-
-  console.log('READ SESSION', req.session)
-  onHeaders(res, function(){
-    console.log('WRITE SESSION', req.session)
-    this.cookie(cookieName, req.session, { maxAge: 900000, httpOnly: true });
-  })
-  next()
-})
-
-server.get('/', routes.index)
-
-server.get('/login', routes.login)
-
-server.post('/login', function(req, res){
-  // recieve login credentials
-  // lookup and authenticate user
-  const credentials = {
-    email:    req.query.email,
-    password: req.query.password
-  }
-
-  database.authenticateUser(credentials)
-    .then(userId => {
-      req.session.userId = userId
-      res.redirect('/')
-    })
-    .catch(error => {
-      res.render('login', {error: error.message})
-    })
-})
-
-server.get('/logout', function(req, res){
-  req.session = {}
-  res.redirect('/')
-})
-
+server.use(routes.sessionMiddleware)
+server.get( '/',       routes.get.index)
+server.get( '/login',  routes.get.login)
+server.post('/login',  routes.post.login)
+server.get( '/logout', routes.get.logout)
 
 //local host server
 server.listen(3000, function() {
