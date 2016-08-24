@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    h1 Holly Grail page layout 
+      .Grid.Grid--full.Grid--nested.header
+        .Grid-cell
+          .Demo.Holly
+            img(src='http://placehold.it/100x50/CC99CC/ffffff&text=Logo', style='vertical-align: middle;')
+            strong  Header / Logo
+
+    if currentUser
+      h1 Welcome Back #{currentUser.name}
+    else
+      h1 Welcome to the thing
+
+    hr
+    pre=JSON.stringify(session, null, 4)
