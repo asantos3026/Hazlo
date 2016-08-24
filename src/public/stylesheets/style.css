@@ -1,3 +1,10 @@
+$demoMain: rgba(51, 153, 204,.2);
+$demoMainDark: rgba(51, 153, 204,.6);
+$demoBorder: #33cccc;
+$demoHolly: rgba(102, 51, 255, 0.1);
+$demoHollyDark: rgba(102, 51, 255, 0.25);
+
+
 body {
   color: #404040;
   font: 100 1em/150% "proxima-nova", Helvetica, sans-serif;
@@ -297,5 +304,3 @@ $gutter: 1em;
 .content-1of4::before { content: "1/4"; }
 .content-1of6::before { content: "1/6"; }
 .content-1of12::before { content: "1/12"; }
-
-

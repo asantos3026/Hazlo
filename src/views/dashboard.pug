@@ -1,7 +1,6 @@
-doctype html
-html(lang='en')
-  head
-    title Hazlo
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    h1 Welcome back #{currentUser.email}
+includes ./layout
+
+block content
+  h1 Welcome back #{currentUser.email}
+  
+        
