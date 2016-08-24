@@ -1,9 +1,6 @@
-doctype html
-html(lang='en')
-  head
-    title Hazlo
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+extends ./layout
+
+block content
     if error
       h1= error
       pre= stack

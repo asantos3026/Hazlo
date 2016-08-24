@@ -1,7 +1,9 @@
-doctype html
-html(lang='en')
-  head
-    title Hazlo
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    h1 Hazlo to da'Flo
+extends ./layout
+
+block content
+  h1 Hazlo 
+  .Grid.Grid--full.Grid--nested.header
+    .Grid-cell
+      .Demo.Holly
+        img(src='http://placehold.it/100x50/CC99CC/ffffff&text=Logo', style='vertical-align: middle;')
+        strong  Header / Logo
