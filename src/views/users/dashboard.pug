@@ -6,3 +6,19 @@ block content
   for todo in todos
     .row
       .col-md-10= todo.title
+
+
+
+  h2 New Todo
+  if newTodoError
+    h1= newTodoError
+  form(method="post" action="/todos")
+    div
+      input(type="text" name="todo[title]" placeholder="title" value=title)
+    div
+      label Work
+      input(type="radio" name="todo[work]" value="true") 
+      label Personal
+      input(type="radio" name="todo[work]" value="false") 
+    div
+      input(type="submit" value="Create")

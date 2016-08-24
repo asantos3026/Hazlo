@@ -1,0 +1,16 @@
+extends ./layout
+
+block content
+    if error
+      h1= error
+    form(method="post" action="/dashboard")
+      div
+        input(type="text" name="todos[title]" placeholder="title" value=title)
+      div
+        input(type="radio" name="todos[work]" value=true) Work
+      div
+        input(type="radio" name="todos[work]" value=false) Personal
+      div
+        input(type="radio" name="todos[completed]" value=true) Completed 
+      div
+        input(type="submit" value="Save")

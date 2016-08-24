@@ -1,0 +1,9 @@
+  if error
+      h1= error
+    form(method="post" action="/")
+      div
+        input(type="text" name="title" placeholder="title" value=email)
+      div
+        input(type="text" name="todo" placeholder="todo")
+      div
+        input(type="submit" value="Save")
