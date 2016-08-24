@@ -17,6 +17,7 @@ CREATE TABLE todos (
   user_id INTEGER NOT NULL,
   title VARCHAR(255) NOT NULL,
   work BOOLEAN NOT NULL,
+  completed BOOLEAN NOT NULL,
   created_at TIMESTAMP NOT NULL
 );
 

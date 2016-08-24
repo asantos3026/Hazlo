@@ -19,11 +19,24 @@ export default {
 
   get: {
     index: function(req, res) {
-      if (req.session.userId){
-        database.getUserById(req.session.userId)
-          .then(currentUser => {
-            res.render('dashboard',{
-              currentUser: currentUser
+      const userId = req.session.userId
+      if (userId){
+        Promise.all([
+          database.getUserById(userId),
+          database.getAllTodosByUserId(userId)
+        ])
+          .then(results => {
+            const currentUser = results[0]
+            const todos = results[1]
+
+
+            const personalTodos = todos.filter(users, ['work', false]
+            const workTodos = todos.filter(users, ['work'])
+
+            res.render('users/dashboard',{
+              currentUser: currentUser,
+              personalTodos: personalTodos,
+              workTodos: workTodos,
             })
           })
       }else{

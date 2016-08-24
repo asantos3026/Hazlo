@@ -31,6 +31,26 @@ server.get( '/login',  routes.get.login)
 server.post('/login',  routes.post.login)
 server.get( '/logout', routes.get.logout)
 
+//get all todos by user
+server.get( '/dashboard', function(req, res, next){
+  const { user_id } = req.params
+
+  database.getAllTodosByUserId(user_id)
+    .then(function(todo){
+      res.render('dashboard', {
+        todos: todos,
+      })
+    })
+    .catch(function(error){
+      throw error
+    })
+})
+//more routes
+//server.get('/edit', routes.get.edit)
+//server.post('/edit', routes.get.edit)
+//server.delete('/')
+
+
 //local host server
 server.listen(3000, function() {
   console.log('Example app listening on port 3000!')
