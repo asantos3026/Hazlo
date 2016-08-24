@@ -31,10 +31,16 @@ server.get( '/login',  routes.get.login)
 server.post('/login',  routes.post.login)
 server.get( '/logout', routes.get.logout)
 
+<<<<<<< HEAD
 //more routes
 //server.get('/edit', routes.get.edit)
 //server.post('/edit', routes.get.edit)
 //server.delete('/')
+=======
+
+
+
+>>>>>>> b7b4c6023f66f141ed54292a807c32e515b1c725
 
 
 //local host server
