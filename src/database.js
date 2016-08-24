@@ -4,6 +4,9 @@ const pgp = require('pg-promise')()
 const db = pgp(connectionString)
 const faker = require('faker')
 
+
+
+
 module.exports = {
   pgp: pgp,
   db: db,
@@ -58,5 +61,45 @@ module.exports = {
       credentials.password
     ]
     return db.oneOrNone(sql, variables)
+  },
+
+  getAllTodosByUserId: function(userId){
+    const sql = `
+      SELECT
+        *
+      FROM
+        todos
+      WHERE
+        user_id=$1
+    `
+    return db.manyOrNone(sql, [userId])
+  },
+
+  getWorkTodosByUserId: function(userId){
+    const sql = `
+      SELECT
+        *
+      FROM
+        todos
+      WHERE
+        user_id=$1 
+      AND
+        work=true
+      `
+      return db.manyOrNone(sql, [userId])
+  },
+
+  getPersonalTodosByUserId: function(userId){
+    const sql = `
+      SELECT
+        *
+      FROM
+        todos
+      WHERE
+        user_id=$1
+      AND
+        work=false
+    `
+    return db.manyOrNone(sql, [userId])
   }
 }
