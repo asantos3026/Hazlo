@@ -31,6 +31,11 @@ export default {
             const currentUser = results[0]
             const todos = results[1]
 
+          // const seeOnlyWorkTodos = work => () {
+          //   return work = true
+          // }
+
+          // const workTodos = todo.filter(seeOnlyWorkTodos)
 
             // const personalTodos = todos.filter(users, ['work', false]
             // const workTodos = todos.filter(users, ['work'])
@@ -149,6 +154,7 @@ const renderError = function(res){
   }
 }
 
+
 const login = function(req, user){
   req.session.userId = user.id
   req.session.email = user.email
@@ -157,3 +163,4 @@ const login = function(req, user){
 const logout = function(req){
   delete req.session.userId
 }
+

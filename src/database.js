@@ -67,6 +67,35 @@ module.exports = {
     return db.oneOrNone(sql, variables)
   },
 
+  updateTodo: function(todoId, attributes){
+    const sql = `
+      UPDATE
+        todos
+      SET
+        title=$2
+      WHERE
+        id=$1
+    `
+    const variables = [
+      todoId,
+      attributes.title,
+    ]
+    console.log('0-------->', sql, variables)
+    return db.none(sql, variables)
+  },
+
+  deleteTodo: function(todoId) {
+    const sql = `
+      DELETE 
+      FROM
+        todos
+      WHERE 
+        id=$1
+    `
+    const variables = [todoId]
+    return db.none(sql, variables)
+  },
+
   createUser: function(attributes){
     const sql = `
       INSERT INTO
@@ -106,6 +135,18 @@ module.exports = {
     return db.oneOrNone(sql, variables)
   },
 
+  getOneTodoById: function(todoId){
+    const sql = `
+      SELECT
+        *
+      FROM
+        todos
+      WHERE 
+        id=$1
+    `
+    return db.one(sql, [todoId])
+  },
+
   getAllTodosByUserId: function(userId){
     const sql = `
       SELECT
@@ -114,6 +155,9 @@ module.exports = {
         todos
       WHERE
         user_id=$1
+      ORDER BY
+        created_at ASC,
+        id DESC
     `
     return db.manyOrNone(sql, [userId])
   },
