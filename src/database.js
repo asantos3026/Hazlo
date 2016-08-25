@@ -72,13 +72,14 @@ module.exports = {
       UPDATE
         todos
       SET
-        title=$2
+        title=$2, work=$3
       WHERE
         id=$1
     `
     const variables = [
       todoId,
       attributes.title,
+      attributes.work
     ]
     console.log('0-------->', sql, variables)
     return db.none(sql, variables)

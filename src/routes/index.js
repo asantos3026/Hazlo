@@ -31,20 +31,13 @@ export default {
             const currentUser = results[0]
             const todos = results[1]
 
-          // const seeOnlyWorkTodos = work => () {
-          //   return work = true
-          // }
-
-          // const workTodos = todo.filter(seeOnlyWorkTodos)
-
-            // const personalTodos = todos.filter(users, ['work', false]
-            // const workTodos = todos.filter(users, ['work'])
+            const workTodos = todos.filter(todo => todo.work)
+            const personalTodos = todos.filter(todo => !todo.work)
 
             res.render('users/dashboard',{
               currentUser: currentUser,
-              todos: todos
-              // personalTodos: personalTodos,
-              // workTodos: workTodos,
+              workTodos: workTodos,
+              personalTodos: personalTodos,
             })
           })
           .catch(renderError(res))
