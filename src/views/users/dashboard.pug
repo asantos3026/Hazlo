@@ -3,22 +3,16 @@ extends ../layout
 block content
   h1 Welcome back #{currentUser.email}
   h2 Todos
-  for todo in todos
-    .row
-      .col-md-10= todo.title
+  ul
+    for todo in todos
+      li.todo-list-item(class=(todo.completed ? 'completed' : ''))
+        span= todo.id
+        span )
+        span= todo.title
+        if todo.completed
+          a(href="/todos/"+todo.id+'/uncomplete') U
+        else
+          a(href="/todos/"+todo.id+'/complete') C
+        a(href="/todos/"+todo.id+'/delete') D
 
-
-
-  h2 New Todo
-  if newTodoError
-    h1= newTodoError
-  form(method="post" action="/todos")
-    div
-      input(type="text" name="todo[title]" placeholder="title" value=title)
-    div
-      label Work
-      input(type="radio" name="todo[work]" value="true") 
-      label Personal
-      input(type="radio" name="todo[work]" value="false") 
-    div
-      input(type="submit" value="Create")
+  include ../todos/new_form

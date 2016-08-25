@@ -32,12 +32,38 @@ module.exports = {
         *
     `
      const variables = [
-      attributes.user_id,
+      attributes.userId,
       attributes.title,
       attributes.work,
-      attributes.completed,
+      false,
       attributes.created_at
     ] 
+    return db.oneOrNone(sql, variables)
+  },
+
+  completeTodo: function(todoId){
+    const sql = `
+      UPDATE 
+        todos
+      SET
+        completed=true 
+      WHERE 
+        id=$1
+    `
+    const variables = [todoId]
+    return db.oneOrNone(sql, variables)
+  },
+
+  uncompleteTodo: function(todoId){
+    const sql = `
+      UPDATE 
+        todos
+      SET
+        completed=false
+      WHERE 
+        id=$1
+    `
+    const variables = [todoId]
     return db.oneOrNone(sql, variables)
   },
 
