@@ -3,6 +3,16 @@ extends ../layout
 block content
   h1 Welcome back #{currentUser.email}
   h2 Todos
-  for todo in todos
-    .row
-      .col-md-10= todo.title
+  ul
+    for todo in todos
+      li.todo-list-item(class=(todo.completed ? 'completed' : ''))
+        span= todo.id
+        span )
+        span= todo.title
+        if todo.completed
+          a(href="/todos/"+todo.id+'/uncomplete') U
+        else
+          a(href="/todos/"+todo.id+'/complete') C
+        a(href="/todos/"+todo.id+'/delete') D
+
+  include ../todos/new_form

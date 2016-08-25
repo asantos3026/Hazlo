@@ -4,12 +4,10 @@ const pgp = require('pg-promise')()
 const db = pgp(connectionString)
 const faker = require('faker')
 
-
-
-
 module.exports = {
   pgp: pgp,
   db: db,
+
   getUserById: function(userId){
     const sql = `
       SELECT
@@ -21,6 +19,51 @@ module.exports = {
       LIMIT 1
     `
     const variables = [userId]
+    return db.oneOrNone(sql, variables)
+  },
+
+  createTodo: function(attributes){
+    const sql = `
+      INSERT INTO
+        todos (user_id, title, work, completed, created_at)
+      VALUES
+        ($1, $2, $3, $4, now())
+      RETURNING
+        *
+    `
+     const variables = [
+      attributes.userId,
+      attributes.title,
+      attributes.work,
+      false,
+      attributes.created_at
+    ] 
+    return db.oneOrNone(sql, variables)
+  },
+
+  completeTodo: function(todoId){
+    const sql = `
+      UPDATE 
+        todos
+      SET
+        completed=true 
+      WHERE 
+        id=$1
+    `
+    const variables = [todoId]
+    return db.oneOrNone(sql, variables)
+  },
+
+  uncompleteTodo: function(todoId){
+    const sql = `
+      UPDATE 
+        todos
+      SET
+        completed=false
+      WHERE 
+        id=$1
+    `
+    const variables = [todoId]
     return db.oneOrNone(sql, variables)
   },
 

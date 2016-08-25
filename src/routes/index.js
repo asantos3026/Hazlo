@@ -17,6 +17,8 @@ export default {
     next()
   },
 
+//logged in routes - create new to do
+
   get: {
     index: function(req, res) {
       const userId = req.session.userId
@@ -25,19 +27,25 @@ export default {
           database.getUserById(userId),
           database.getAllTodosByUserId(userId)
         ])
+          .catch(error => {
+            res.send('ERROR: '+error)
+          })
           .then(results => {
             const currentUser = results[0]
             const todos = results[1]
 
 
-            const personalTodos = todos.filter(users, ['work', false]
-            const workTodos = todos.filter(users, ['work'])
+            // const personalTodos = todos.filter(users, ['work', false]
+            // const workTodos = todos.filter(users, ['work'])
 
             res.render('users/dashboard',{
               currentUser: currentUser,
-              personalTodos: personalTodos,
-              workTodos: workTodos,
+              todos: todos
+              // personalTodos: personalTodos,
+              // workTodos: workTodos,
             })
+          }).catch(error => {
+            res.send('ERROR: '+error)
           })
       }else{
         res.render('homepage')
@@ -45,13 +53,13 @@ export default {
     },
 
     signup: function(req, res){
-      res.render('signup',{
+      res.render('users/signup',{
         email: ''
       })
     },
 
     login: function(req, res){
-      res.render('login',{
+      res.render('users/login',{
         email: req.session.email
       })
     },
@@ -74,7 +82,8 @@ export default {
           error: 'passwords do not match',
           email: email,
         })
-      }else{
+      } 
+      else {
         // res.json(req.body)
         database.createUser(attributes)
           .then(user => {
@@ -89,7 +98,27 @@ export default {
             })
           })
       }
+    },
 
+    newTodo: function(req, res) {
+      const userId = req.session.userId
+      if (userId){
+        Promise.all([
+          database.getUserById(userId),
+          database.createToDo(userId)
+        ])
+          .then(results => {
+            const currentUser = results[0]
+            const newTodo = results[1]
+
+            res.render('users/dashboard', {
+              currentUser: currentUser,
+              todo: todo
+            })
+          })
+      }else {
+        res.render('homepage')
+      }
     },
 
     login: function(req, res){
@@ -101,10 +130,11 @@ export default {
       database.authenticateUser(credentials)
         .then(user => {
           if (user === null){
-            res.status(400).render('login', {
+            res.status(400).render('users/login', {
               error: 'Bad email or password'
             })
-          }else{
+          }
+          else {
             login(req, user)
             res.redirect('/')
           }
