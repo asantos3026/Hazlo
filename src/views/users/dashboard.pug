@@ -3,19 +3,36 @@ extends ../layout
 block content
   h1 Welcome back #{currentUser.email}
   h2 Todos
-  ul
-    for todo in todos
-      li.todo-list-item(class=(todo.completed ? 'completed' : ''))
-        span= todo.id
-        span )
-        span= todo.title
-        if todo.completed
-          a(href="/todos/"+todo.id+'/uncomplete') U
-        else
-          a(href="/todos/"+todo.id+'/complete') C
-        a(href="/todos/"+todo.id+'/delete') D
-        a(href="/todos/"+todo.id+'/edit') Edit
+  
 
+  mixin todoListItem(todo)
+    li.todo-list-item(class=(todo.completed ? 'completed' : ''))
+      span= todo.id
+      span )
+      span= todo.title
+      if todo.completed
+        a(href="/todos/"+todo.id+'/uncomplete') U
+      else
+        a(href="/todos/"+todo.id+'/complete') C
+      a(href="/todos/"+todo.id+'/delete') D
+      a(href="/todos/"+todo.id+'/edit') Edit
+
+  h4 Work
+  ul.todos.work-todos
+    for todo in workTodos
+      +todoListItem(todo)
+  
+
+  h4 Personal
+  ul.todos.personal-todos
+    for todo in personalTodos
+      +todoListItem(todo)
+ 
+
+  //- li.todo-work-item(class=(todo.work === 'true' ? '' : '' ))
+  //-   h2 Work To Dos
+  //-   span= todo.work 
+  //-   if todo.work
       
 
   include ../todos/new_form
