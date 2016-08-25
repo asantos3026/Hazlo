@@ -27,9 +27,6 @@ export default {
           database.getUserById(userId),
           database.getAllTodosByUserId(userId)
         ])
-          .catch(error => {
-            res.send('ERROR: '+error)
-          })
           .then(results => {
             const currentUser = results[0]
             const todos = results[1]
@@ -44,9 +41,8 @@ export default {
               // personalTodos: personalTodos,
               // workTodos: workTodos,
             })
-          }).catch(error => {
-            res.send('ERROR: '+error)
           })
+          .catch(renderError(res))
       }else{
         res.render('homepage')
       }
@@ -116,6 +112,7 @@ export default {
               todo: todo
             })
           })
+          .catch(renderError(res))
       }else {
         res.render('homepage')
       }
@@ -139,10 +136,18 @@ export default {
             res.redirect('/')
           }
         })
+        .catch(renderError(res))
     }
   }
 }
 
+const renderError = function(res){
+  return function(error){
+    res.render('error',{
+      error: error
+    })
+  }
+}
 
 const login = function(req, user){
   req.session.userId = user.id
