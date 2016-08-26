@@ -29,6 +29,10 @@ main {
   margin-top: 95px;
 }
 
+.todo-title {
+  padding-top: 50px;
+}
+
 .text-align-right{
   text-align: right;
 }
