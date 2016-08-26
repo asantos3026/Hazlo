@@ -1,9 +1,10 @@
 extends ../layout
 
 block content
-    if error
-      h1= error
-      pre= stack
+  if error
+    h1= error
+    pre= stack
+  .flexbox-grid.sign-up  
     form(method="post" action="/signup")
       h1 Sign up for Hazlo
       div

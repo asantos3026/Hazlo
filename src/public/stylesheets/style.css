@@ -13,6 +13,16 @@ body { margin: 0; background: #f2f2f2;color: #222;-webkit-font-smoothing: antial
   font-family: "HelveticaNeue-Light";
 }
 
+.sign-up {
+  padding-top: 200px;
+  text-align: center;
+}
+
+.login {
+  padding-top: 200px;
+  text-align: center;
+}
+
 .flexbox-grid {
   font-family: "Lucida Grande";
   display: flex;
