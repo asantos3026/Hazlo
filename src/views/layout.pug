@@ -2,43 +2,33 @@ doctype html
 html(lang='en')
   head
     title Hazlo
+    link(href='https://fonts.googleapis.com/css?family=Playfair+Display', rel='stylesheet')
     link(rel='stylesheet', href='../stylesheets/style.css')
   body
     script(src='https://code.jquery.com/jquery-3.1.0.min.js', integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=', crossorigin='anonymous')
-    
-      //- .Grid.Grid--full
-      //-   .Grid-cell
-      //-     ul.navigation
-      //-       li
-      //-         a(href='#') Home
-      //-       li
-      //-         a(href='#') About
-      //-       li
-      //-         a(href='#') Products
-      //-       li
-      //-         a(href='#') Contact
-      //- .Grid.Grid--gutters.Grid--holly-grail
-      //-   .Grid-cell.main
-      //-     .Demo.Holly
-      //-       strong Main
-      //-       p
-      //-         | Salvia Helvetica ethical lo-fi, artisan messenger bag put a bird on it. Photo booth taxidermy kale chips, Carles Thundercats retro blog paleo. 8-bit four loko jean shorts, church-key tattooed bespoke normcore art party salvia organic vinyl letterpress distillery.
-      //-   .Grid-cell.aside.aside-1
-      //-     .Demo.Holly
-      //-       strong Aside 1
-      //-       br
-      //-       .img-placeholder
-      //-       |         Chocolate cake fruitcake icing muffin applicake chocolate.
-      //-   .Grid-cell.aside.aside-2
-      //-     .Demo.Holly
-      //-       strong Aside 2
-      //-       p
-      //-         | Hashtag deep v PBR, chillwave banjo mlkshk readymade fixie crucifix. Tattooed Tumblr direct trade trust fund swag gluten-free.
-      //- .Grid.Grid--full
-      //-   .Grid-cell
-      //-     .Demo.Holly
-      //-       strong Footer
-            
+    header.responsive-header
+      nav(role='navigation')
+        ul.header-list
+          li
+            a(href='/')
+              div
+                | Hazlo
+                span Do It
+          li
+            a(href='/blog')
+              div
+                | Tasks
+            div
+              ul
+                li
+                  a(href='#') Work
+                li
+                  a(href='#') Personal
+          li
+            a(href='/contact')
+              div
+                | Us
+                span freelance
   block content
 
     
