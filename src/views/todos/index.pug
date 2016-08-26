@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  h3.center Your #{work ? 'Work' : 'Personal'} Tasks
+  
+  .todos.container
+    for todo in todos
+      .row.todo-list-item(class=(todo.completed ? 'completed' : ''))
+        .col-sm-6.text-align-right
+          span.todo-list-item-title= todo.title
+        .col-sm-6
+          if todo.completed
+            a(class="btn btn-small btn-default" href="/todos/"+todo.id+'/uncomplete') U
+          else
+            a(class="btn btn-small btn-default" href="/todos/"+todo.id+'/complete') C
+          a(class="btn btn-small btn-default" href="/todos/"+todo.id+'/delete') D
+          a(class="btn btn-small btn-default" href="/todos/"+todo.id+'/edit') E
+
+  include ./new_form
