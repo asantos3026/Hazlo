@@ -30,6 +30,7 @@ server.post('/signup', routes.post.signup)
 server.get( '/login',  routes.get.login)
 server.post('/login',  routes.post.login)
 server.get( '/logout', routes.get.logout)
+// server.get('/personal-todos-show', routes.get.)
 
 // server.get('/todos/:id/edit', routes.get.edit)
 server.delete('/todos/:id', routes.get.index)
@@ -44,6 +45,34 @@ server.get('/test', function(req, res, next){
     })
     .catch(renderError(res))
 })
+
+const todosRouteHandler = function(work, req, res){
+  const userId = req.session.userId
+  if (!userId){
+    res.redirect('/login')
+    return;
+  }
+
+  Promise.all([
+    database.getUserById(userId),
+    database.getAllTodosByUserId(userId)
+  ])
+    .then(results => {
+      const currentUser = results[0]
+      let todos = results[1]
+      todos = todos.filter(todo => todo.work === work)
+
+      res.render('todos/index',{
+        work: work,
+        currentUser: currentUser,
+        todos: todos,
+      })
+    })
+    .catch(renderError(res))
+}
+
+server.get('/work',     todosRouteHandler.bind(null, true))
+server.get('/personal', todosRouteHandler.bind(null, false))
 
 
 //Create New To Dos

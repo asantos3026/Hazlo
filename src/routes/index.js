@@ -9,6 +9,8 @@ export default {
     req.session.requestCount = req.session.requestCount || 0
     req.session.requestCount++;
 
+    res.locals.loggedIn = 'userId' in req.session 
+
     console.log('READ SESSION', req.session)
     onHeaders(res, function(){
       console.log('WRITE SESSION', req.session)
@@ -29,15 +31,12 @@ export default {
         ])
           .then(results => {
             const currentUser = results[0]
-            const todos = results[1]
-
-            const workTodos = todos.filter(todo => todo.work)
-            const personalTodos = todos.filter(todo => !todo.work)
+            let todos = results[1]
+            todos = todos.filter(todo => todo.completed)
 
             res.render('users/dashboard',{
               currentUser: currentUser,
-              workTodos: workTodos,
-              personalTodos: personalTodos,
+              todos: todos,
             })
           })
           .catch(renderError(res))

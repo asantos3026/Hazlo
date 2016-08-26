@@ -2,9 +2,9 @@ doctype html
 html(lang='en')
   head
     title Hazlo
-    link(href='https://fonts.googleapis.com/css?family=Playfair+Display', rel='stylesheet')
-    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-    link(rel='stylesheet', href='../stylesheets/style.css')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display')
+    link(rel='stylesheet' href='/stylesheets/style.css')
 
   body
     header.responsive-header
@@ -15,31 +15,38 @@ html(lang='en')
               div
                 | Hazlo
                 span Do It
-          li
-            a(href='/blog')
+          if loggedIn
+            li
+              a(href='/blog')
+                div
+                  | Tasks
               div
-                | Tasks
-            div
-              ul
-                li
-                  a(href='#') Work
-                li
-                  a(href='#') Personal
+                ul
+                  li
+                    a(href='/work') Work
+                  li
+                    a(href='/personal') Personal
           li
             a(href='/contact')
               div
                 | Us
                 span freelance
-
-          li
-            a(href='/login')
-              div
-                | Login
-          li
-            a(href='/signup')
-              div
-                | Sign Up
-  block content
+          if loggedIn
+            li 
+              a(href='/logout')
+                div
+                  | Logout
+          else 
+            li
+              a(href='/login')
+                div
+                  | Login
+            li
+              a(href='/signup')
+                div
+                  | Sign Up
+  main
+    block content
 
 
 

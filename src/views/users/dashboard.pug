@@ -1,38 +1,22 @@
 extends ../layout
 
 block content
-  h1 Welcome back #{currentUser.email}
-  h2 Todos
-  
+  h3.center Your Incomplete Tasks
 
-  mixin todoListItem(todo)
-    li.todo-list-item(class=(todo.completed ? 'completed' : ''))
-      span= todo.id
-      span )
-      span= todo.title
-      if todo.completed
-        a(href="/todos/"+todo.id+'/uncomplete') U
-      else
-        a(href="/todos/"+todo.id+'/complete') C
-      a(href="/todos/"+todo.id+'/delete') D
-      a(href="/todos/"+todo.id+'/edit') Edit
+  .todos.container
+    for todo in todos
+      .row.todo-list-item(class=(todo.completed ? 'completed' : ''))
+        .col-sm-6.text-align-right
+          span.todo-list-item-title= todo.title
+        .col-sm-6
+          if todo.completed
+            a(class="btn btn-small btn-default" href="/todos/"+todo.id+'/uncomplete') U
+          else
+            a(class="btn btn-small btn-default" href="/todos/"+todo.id+'/complete') C
+          a(class="btn btn-small btn-default" href="/todos/"+todo.id+'/delete') D
+          a(class="btn btn-small btn-default" href="/todos/"+todo.id+'/edit') E
 
-  h4 Work
-  ul.todos.work-todos
-    for todo in workTodos
-      +todoListItem(todo)
-  
 
-  h4 Personal
-  ul.todos.personal-todos
-    for todo in personalTodos
-      +todoListItem(todo)
- 
-
-  //- li.todo-work-item(class=(todo.work === 'true' ? '' : '' ))
-  //-   h2 Work To Dos
-  //-   span= todo.work 
-  //-   if todo.work
       
 
   include ../todos/new_form

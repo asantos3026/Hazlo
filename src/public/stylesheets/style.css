@@ -1,13 +1,29 @@
-* {margin: 0;padding: 0;outline: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
-*:after, *:before { -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
-article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {  display: block;}
-html {font-size: 100%;height: auto !important;height: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
-.clear {display: block; }
-.clear::after {clear: both;content: ".";display: block;height: 1px;visibility: hidden;}
-  
+ 
 /*GENERIC STYLES*/
-body { margin: 0; background: #f2f2f2;color: #222;-webkit-font-smoothing: antialiased;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 1.05em;font-weight: 400;height: auto !important;height: 100%;line-height: 1.6rem;min-height: 100%;}
+html, body { 
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  height: 100%;
+  width: 100%;
+}
 
+main {
+  margin-top: 95px;
+}
+
+.text-align-right{
+  text-align: right;
+}
+
+.tiny-font {
+  font-size: 18px
+}
 
 .about {
   font-family: "HelveticaNeue-Light";
@@ -85,13 +101,15 @@ body { margin: 0; background: #f2f2f2;color: #222;-webkit-font-smoothing: antial
 
 /*NAV*/
   .responsive-header {
-    background: linear-gradient(to left,rgba(22, 60, 60, 0.96) 0,rgba(9, 16, 16, 0.96) 100%);
-    border-bottom: 1px solid rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    z-index: 10;
     display: block;
     position: fixed;
-    width: 100%;
-    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to left,rgba(22, 60, 60, 1) 0,rgba(9, 16, 16, 1) 100%);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
   }
   
   .header-list {
