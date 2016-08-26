@@ -1,4 +1,15 @@
- 
+* {margin: 0;padding: 0;outline: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+*:after, *:before { -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {  display: block;}
+html {font-size: 100%;height: auto !important;height: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
+.clear {display: block; }
+.clear::after {clear: both;content: ".";display: block;height: 1px;visibility: hidden;}
+  
+/*GENERIC STYLES*/
+body { background: #f2f2f2;color: #222;-webkit-font-smoothing: antialiased;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 1.05em;font-weight: 400;height: auto !important;height: 100%;line-height: 1.6rem;min-height: 100%;}
+
+
+
 /*GENERIC STYLES*/
 
 html, body { 
@@ -18,15 +29,17 @@ main {
   margin-top: 95px;
 }
 
+.todo-title {
+  padding-top: 50px;
+}
+
 .text-align-right{
   text-align: right;
 }
 
 .tiny-font {
   font-size: 18px
-
-body { margin: 0; background: #f2f2f2;color: #222;-webkit-font-smoothing: antialiased;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 1.05em;font-weight: 400;height: auto !important;height: 100%;line-height: 1.6rem;min-height: 100%;}
-/*forms*/
+}
 
 .login-form {
   padding-top: 500px;
@@ -87,7 +100,6 @@ body { margin: 0; background: #f2f2f2;color: #222;-webkit-font-smoothing: antial
   padding-right: 50px;
   padding-bottom: 50pm;
 }
-
 
 .about {
   display:flex;

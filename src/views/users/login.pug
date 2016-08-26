@@ -4,7 +4,7 @@ block content
   if error
     h1= error
   .flexbox-grid
-    .login-form(method="post" action="/login")
+    form.login-form(method="post" action="/login")
       h2.page-header-login Login
       div
         input(type="text" name="email" placeholder="email" value=email)
