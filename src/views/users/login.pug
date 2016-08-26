@@ -3,6 +3,7 @@ extends ../layout
 block content
     if error
       h1= error
+  .login.flexbox-grid
     form(method="post" action="/login")
       div
         input(type="text" name="email" placeholder="email" value=email)
