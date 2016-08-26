@@ -9,8 +9,36 @@ html {font-size: 100%;height: auto !important;height: 100%;-webkit-text-size-adj
 body { margin: 0; background: #f2f2f2;color: #222;-webkit-font-smoothing: antialiased;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 1.05em;font-weight: 400;height: auto !important;height: 100%;line-height: 1.6rem;min-height: 100%;}
 
 
+.about {
+  font-family: "HelveticaNeue-Light";
+}
+
+.flexbox-grid {
+  font-family: "Lucida Grande";
+  display: flex;
+  margin-right: 150px;
+  margin-left: 150px;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+}
+
+.picture {
+  padding-top: 80px;
+}
+
+.text-left {
+  padding-left: 50px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+
 .banner { 
-  padding-top: 100px;
+  padding-top: 78px;
   font-size: 0;
   display: -ms-flexbox;
   -ms-flex-wrap: wrap;
@@ -63,11 +91,6 @@ body { margin: 0; background: #f2f2f2;color: #222;-webkit-font-smoothing: antial
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-  
-  .header-list > li {
-    background: red;
-
   }
 
   .header-list > li:hover {
@@ -157,5 +180,8 @@ body { margin: 0; background: #f2f2f2;color: #222;-webkit-font-smoothing: antial
   
   header > nav > ul > li > a > div > span {
     margin: 4px 0 0;  
+
   }
+
 }
+
