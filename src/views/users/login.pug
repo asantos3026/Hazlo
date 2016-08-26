@@ -3,12 +3,13 @@ extends ../layout
 block content
   if error
     h1= error
-  .flexbox-grid.login
-    h1 Login
-    form(method="post" action="/login")
+  .flexbox-grid
+    .login-form(method="post" action="/login")
+      h2.page-header-login Login
       div
         input(type="text" name="email" placeholder="email" value=email)
       div
         input(type="password" name="password" placeholder="password")
-      div
+      .submit
         input(type="submit" value="Login")
+      img(src='http://67.media.tumblr.com/dd8456ec912cce0b22c13376090c8bb9/tumblr_mi9vh10kGo1qibnljo1_400.jpg')
