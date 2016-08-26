@@ -64,11 +64,6 @@ body { margin: 0; background: #f2f2f2;color: #222;-webkit-font-smoothing: antial
     margin: 0;
     padding: 0;
   }
-  
-  .header-list > li {
-    background: red;
-
-  }
 
   .header-list > li:hover {
     background: purple;
