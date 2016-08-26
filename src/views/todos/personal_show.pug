@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+
+h4 Personal
+ul.todos.personal-todos
+  for todo in personalTodos
+    +todoListItem(todo)

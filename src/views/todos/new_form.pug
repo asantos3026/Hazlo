@@ -1,13 +1,14 @@
-h2 New Todo
-if newTodoError
-  h1= newTodoError
-form(method="post" action="/todos")
-  div
-    input(type="text" name="todo[title]" placeholder="title" value=title required pattern=".{3,}")
-  div
-    label Work
-    input(type="radio" name="todo[work]" value="true" required) 
-    label Personal
-    input(type="radio" name="todo[work]" value="false" required) 
-  div
-    input(type="submit" value="Create")
+.flexbox-grid
+  if newTodoError
+    h1= newTodoError
+  form(method="post" action="/todos")
+  h2 New Todo
+    div
+      input(type="text" name="todo[title]" placeholder="title" value=title required pattern=".{3,}")
+    div
+      label.tiny-font Work
+      input(type="radio" name="todo[work]" value="true" required) 
+      label.tiny-font Personal
+      input(type="radio" name="todo[work]" value="false" required) 
+    div
+      input(type="submit" value="Create")
