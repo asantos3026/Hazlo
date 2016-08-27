@@ -29,6 +29,15 @@ main {
   margin-top: 95px;
 }
 
+.creators-blurb {
+  padding-top: 40px;
+}
+
+.creators-title {
+  padding-top: 10px;
+  text-align: center;
+}
+
 .todo-title {
   padding-top: 50px;
 }
@@ -72,9 +81,6 @@ main {
 
 .page-header {
   font-family: "Lucida Grande";
-  text-align: center;
-  font-size: 74px;
-  padding: 50px;
 }
 
 .page-header-login {
@@ -141,28 +147,24 @@ main {
 
 
 .banner { 
-  padding-top: 78px;
+  padding-top: 0px;
   font-size: 0;
-  display: -ms-flexbox;
-  -ms-flex-wrap: wrap;
-  -ms-flex-direction: column;
-  -webkit-flex-flow: row wrap; 
-  flex-flow: row wrap; 
-  display: -webkit-box;
   display: flex;
+  background-color: #fff;
 }
 
-.banner div { 
+/*.banner div { 
   -webkit-box-flex: auto;
   -ms-flex: auto;
   flex: auto; 
   width: 200px; 
   margin: .5vw; 
-}
+}*/
 
 .banner div img { 
   width: 100%; 
   height: auto; 
+  background-position: center;
 }
 
 @media screen and (max-width: 400px) {
@@ -179,75 +181,71 @@ main {
 /*homepage*/
 
 /*NAV*/
-  .responsive-header {
-    z-index: 10;
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to left,rgba(22, 60, 60, 1) 0,rgba(9, 16, 16, 1) 100%);
-    border-bottom: 1px solid rgba(0,0,0,.1);
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-  }
+.responsive-header {
+  z-index: 10;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to left,rgba(22, 60, 60, 1) 0,rgba(9, 16, 16, 1) 100%);
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
   
-  .header-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+.header-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  .header-list > li:hover {
-    background: purple;
-
-  }
-    .link {
-      flex: 0 1 auto;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      transition: all linear 0.1s;  
-    }
+.link {
+  flex: 0 1 auto;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  transition: all linear 0.1s;  
+}
     
-      .header-list li:hover {
-        background: rgba(58,162,173,1);
-      }
+.header-list li:hover {
+  background-color: rgba(13, 60, 130, 0.92);
+}
       
-      .header-list li a + div {
-        background: linear-gradient(to bottom,rgba(58,162,173,1) 0,rgba(62,188,207,0.96) 100%);;
-        border-radius: 0 0 2px 2px;
-        box-shadow: 0 3px 1px rgba(0,0,0,.05);
-        display: none;
-        font-size: 1rem;
-        position: absolute;
-        width: 195px;
-      }
+.header-list li a + div {
+  background: linear-gradient(to bottom,rgba(58,162,173,1) 0,rgba(62,188,207,0.96) 100%);;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 3px 1px rgba(0,0,0,.05);
+  display: none;
+  font-size: 1rem;
+  position: absolute;
+  width: 195px;
+}
       
-        header > nav > ul > li:hover a + div {
-          display: block;
-        }
+.header-list li:hover a + div {
+  display: block;
+}
         
-        header > nav > ul > li a + div > ul {
-          list-style-type: none;  
-        }
+.header-list li a + div > ul {
+  list-style-type: none;  
+}
         
-          header > nav > ul > li a + div > ul > li {
-            margin: 0;
-            padding: 0;
-          }
+.header-list li a + div > ul > li {
+  margin: 0;
+  padding: 0;
+}
           
-            header > nav > ul > li a + div > ul > li > a {
-              color: rgba(255,255,255,.9);
-              display: block; 
-              font-size: .75rem;
-              letter-spacing: 1.5px;
-              padding: .25rem 1.5rem;
-              text-decoration: none;
-              text-transform: uppercase;
-            }
+.header-list li a + div > ul > li > a {
+  color: rgba(255,255,255,.9);
+  display: block; 
+  font-size: .75rem;
+  letter-spacing: 1.5px;
+  padding: .25rem 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
             
               header > nav > ul > li a + div > ul > li:hover > a {
                 background-color: rgba(0,0,0,.15);  
@@ -287,7 +285,6 @@ main {
   
   header > nav > ul > li > a > div > span {
     margin: 4px 0 0;  
-
   }
 
 }
