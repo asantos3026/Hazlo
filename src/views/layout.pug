@@ -29,9 +29,9 @@ html(lang='en')
                   li
                     a(href='/personal') Personal
           li
-            a(href='/contact')
+            a(href='#creators')
               div
-                | Us
+                | Creators
                 span freelance
           if loggedIn
             li 
@@ -49,6 +49,14 @@ html(lang='en')
                   | Sign Up
   main
     block content
+  .navbar.navbar-default.navbar-fixed-bottom
+    .container
+      p.navbar-text.pull-left
+        | © 2016 - Site Built By Mr. M.
+        a(href='http://tinyurl.com/tbvalid', target='_blank') HTML 5 Validation
+      a.navbar-btn.btn-danger.btn.pull-right(href='http://youtu.be/zJahlKPCL9g')
+        span.glyphicon.glyphicon-star
+        |   Subscribe on YouTube
 
 
 
